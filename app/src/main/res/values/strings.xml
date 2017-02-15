@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SMS App</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="permission_rationale">"SMS permissions are needed for reading and sending sms"</string>
+    <string name="dummy_msg">This is a dummy message</string>
+    <string name="progress_msg">please wait</string>
+    <string name="send_sms">Send SMS</string>
+    <string name="action_backup">Backup to drive</string>
+    <string name="api_key">AIzaSyBhD4SMJH2i8LvhyEfRjIP_2vD9tldljKc</string>
+
+    <string name="google_app_id">390408103985-lkrih3phlf5lsfhavm4fb93mn4rfo85d.apps.googleusercontent.com</string>
+</resources>
