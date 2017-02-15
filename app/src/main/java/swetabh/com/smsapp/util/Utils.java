@@ -26,6 +26,9 @@ public class Utils {
 
     public static List<SMSModel> sAllSMSList = new ArrayList<>();
 
+    /*
+    * Method to get the list of sms of particular address
+    * */
     public static List<SMSModel> getParticularAddressSms(String addres, Context context) {
         final String SMS_URI_INBOX = "content://sms/inbox";
         List<SMSModel> smsModelList = new ArrayList<>();
@@ -63,6 +66,9 @@ public class Utils {
         return smsModelList;
     }
 
+    /*
+    * Method to get all the inbox sms here grouping is also done
+    * */
     public static List<SMSModel> getInboxSms(Context mContext) {
         StringBuilder smsBuilder = new StringBuilder();
         final String SMS_URI_INBOX = "content://sms/inbox";
@@ -124,6 +130,9 @@ public class Utils {
         return smsModelList;
     }
 
+    /*
+    * Method for validation a phone number
+    * */
     public static boolean validatePhone(String phoneNumber) {
         if (phoneNumber.isEmpty() || isValidMobile(phoneNumber)) {
             return false;
@@ -133,29 +142,15 @@ public class Utils {
 
     }
 
+    /**
+     * takes string phone number
+     *
+     * @param phone
+     */
     private static boolean isValidMobile(String phone) {
         String Regex = "[^\\d]";
         String PhoneDigits = phone.replaceAll(Regex, "");
         return (PhoneDigits.length() != 10);
     }
 
-    public static void backupAllSms(Context mContext, List<SMSModel> mSmsList) {
-        try {
-            File root = new File(Environment.getExternalStorageDirectory(), "/SMSApp/smsbackup/");
-            if (!root.exists()) {
-                root.mkdirs();
-            }
-            Gson gson = new Gson();
-            String smsList = gson.toJson(mSmsList);
-            File gpxfile = new File(root, "smsBackup.txt");
-            Log.d("", gpxfile.getPath() + " Absolute path : " + gpxfile.getAbsolutePath());
-            FileWriter writer = new FileWriter(gpxfile);
-            writer.append(smsList);
-            writer.flush();
-            writer.close();
-            Toast.makeText(mContext, "Saved", Toast.LENGTH_SHORT).show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

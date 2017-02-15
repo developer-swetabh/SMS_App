@@ -79,11 +79,6 @@ public class SmsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> im
         return mFilter;
     }
 
-    public void setOriginalVale() {
-        this.mSmsList = mFilteredSmsList;
-        notifyDataSetChanged();
-    }
-
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView vh_Address;
         public TextView vh_Body;
